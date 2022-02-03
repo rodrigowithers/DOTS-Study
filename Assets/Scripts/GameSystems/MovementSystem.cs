@@ -16,7 +16,8 @@ namespace GameSystems
             Entities.ForEach((ref PhysicsVelocity physicsVelocity, in SpeedData speedData) =>
             {
                 float2 newVelocity = physicsVelocity.Linear.xz;
-                newVelocity += input * speedData.Value * deltaTime;
+
+                newVelocity = input * speedData.Value;
                 physicsVelocity.Linear.xz = newVelocity;
             }).Run();
         }
